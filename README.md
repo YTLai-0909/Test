@@ -22,7 +22,7 @@
 ### **其他 push**
 - **git add 檔案名稱.副檔名**
 - **git commit -m "版本訊息"**
-- **git push 遠端名稱 分支名稱**
+- **git push 遠端名稱( origin ) 分支名稱( master )**
 
 ## **將檔案 push 到 GitHub 上的指定資料夾內**
 - [在 GitHub 上建立資料夾](#在-GitHub-上建立資料夾)
