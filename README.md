@@ -48,6 +48,7 @@
 
 ## **衝突**
 - [本地端的不同分支合併衝突](#本地端的不同分支合併衝突)
+- [遠端與本地端的同分支合併衝突](#遠端與本地端的同分支合併衝突)
 ### **本地端的不同分支合併衝突**
 - 在 master 分支上
 	- 新增檔案 -> git add -> git commit
@@ -69,3 +70,18 @@
 - **git add**
 - **git commit**
 	- 解決衝突，merge 本地端的兩個分支
+### **遠端與本地端的同分支合併衝突**
+- 在遠端( GitHub )的 master 分支上
+	- 修改檔案 -> Commit changes -> 輸入 commit 內容 -> 選擇 Commit directly to the master branch -> Commit changes
+- 在本地端的 master 分支上
+	- 修改檔案 -> git add -> git commit
+- git push，push 失敗
+	- Git 不允許在遠端版本比本地端版本新的情況下進行 push，避免覆蓋到他人的改動
+- git pull，發生衝突
+	- 遠端與本地端的分支版本不一樣
+- 解決衝突
+	- 在本地端手動解決衝突，並刪除 Git 的衝突標記
+	- Git 的衝突標記：「<<<<<<<」、「=======」、「>>>>>>>」
+- **git add**
+- **git commit**
+	- 解決衝突，merge 遠端與本地端的分支
