@@ -59,8 +59,8 @@
 	- 修改檔案 -> git add -> git commit
 - 在 master 分支上
 	- 修改檔案 -> git add -> git commit
-- **git merge 分支名稱**
-	- 將分支名稱( conflict-practice )合併到 HEAD 指向的分支( master )
+- **git merge --no-commit 分支名稱**
+	- 將分支名稱( conflict-practice )合併到 HEAD 指向的分支( master )，並且不自動產生 commit
 - 發生衝突
 	- 本地端的兩個分支版本不一樣
 - 解決衝突
