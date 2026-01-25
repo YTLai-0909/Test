@@ -1,1 +1,31 @@
-# ****
+# **衝突**
+- [本地端與本地端的不同分支合併衝突](#本地端與本地端的不同分支合併衝突)
+
+## **本地端與本地端的不同分支合併衝突**
+- **git branch <分支名稱>**
+    - 在 master 上切新分支。
+    - 建立 tmp-different-branch-conflict 分支。
+- **git checkout <分支名稱>**
+    - 切換到 tmp-different-branch-conflict 分支。
+- 在 tmp-different-branch-conflict 分支上
+    - 新增並編輯檔案 → git add → git commit
+- **git branch <分支名稱>**
+    - 在 master 上切新分支。
+    - 建立 different-branch-conflict 分支。
+- **git checkout <分支名稱>**
+    - 切換到 different-branch-conflict 分支。
+- 在 different-branch-conflict 分支上
+    - 新增並編輯檔案 → git add → git commit
+- **git merge --no-ff --no-commit <分支名稱>**，發生衝突
+    - 將分支名稱(tmp-different-branch-conflict)合併到 HEAD 指向的分支(different-branch-conflict)。
+    - --no-ff：不使用 Fast-forward 合併。
+    - --no-commit：不自動產生 commit。
+    - 本地端的兩個分支版本不一樣。
+- 解決衝突
+    - 在本地端手動解決衝突，並刪除 Git 的衝突標記。
+    - Git 的衝突標記：「<<<<<<<」、「=======」、「>>>>>>>」。
+- **git add <檔案名稱.副檔名>**
+    - 將檔案標記為衝突已解決。
+- **git commit**
+    - 解決衝突，merge 本地端的兩個分支。
+- **git push -u <遠端名稱(origin)> <分支名稱>**
