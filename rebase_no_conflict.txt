@@ -1,3 +1,5 @@
 在 rebase-no-conflict 分支上新增內容
 >>> 1 2 3
 
+在 tmp-rebase-no-conflict 分支上新增內容
+>>> 4 5 6
