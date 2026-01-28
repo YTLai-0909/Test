@@ -1,1 +1,31 @@
-# ****
+# **merge**
+- [有衝突的 merge](#有衝突的-merge)
+
+## **有衝突的 merge**
+- **git branch <分支名稱>**
+    - 在 master 上切新分支。
+    - 建立 tmp-merge-conflict 分支。
+- **git checkout <分支名稱>**
+    - 切換到 tmp-merge-conflict 分支。
+- 在 tmp-merge-conflict 分支上
+    - 新增並編輯檔案 → git add → git commit
+- **git branch <分支名稱>**
+    - 在 master 上切新分支。
+    - 建立 merge-conflict 分支。
+- **git checkout <分支名稱>**
+    - 切換到 merge-conflict 分支。
+- 在 merge-conflict 分支上
+    - 新增並編輯檔案 → git add → git commit
+- **git merge --no-ff --no-commit <分支名稱>**，發生衝突
+    - 將分支名稱(tmp-merge-conflict)合併到 HEAD 指向的分支(merge-conflict)。
+    - --no-ff：不使用 Fast-forward 合併。
+    - --no-commit：不自動產生 commit。
+    - merge-conflict 和 tmp-merge-conflict 分支的版本不一樣。
+- 解決衝突
+    - 在本地端手動解決衝突，並刪除 Git 的衝突標記。
+    - Git 的衝突標記：「<<<<<<<」、「=======」、「>>>>>>>」。
+- **git add <檔案名稱.副檔名>**
+    - 將檔案標記為衝突已解決。
+- **git commit**
+    - 解決衝突，撰寫 merge 的 commit 內容。
+- **git push -u <遠端名稱(origin)> <分支名稱>**
