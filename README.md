@@ -1,1 +1,32 @@
-# ****
+# **rebase**
+- [沒有衝突的 rebase](#沒有衝突的-rebase)
+
+## **沒有衝突的 rebase**
+- **git branch <分支名稱>**
+    - 在 master 上切新分支。
+    - 建立 rebase-no-conflict 分支。
+- **git checkout <分支名稱>**
+    - 切換到 rebase-no-conflict 分支。
+- 在 rebase-no-conflict 分支上
+    - 新增檔案 → git add → git commit
+- **git branch <分支名稱>**
+    - 在 rebase-no-conflict 上切新分支。
+    - 建立 tmp-rebase-no-conflict 分支。
+- **git checkout <分支名稱>**
+    - 切換到 tmp-rebase-no-conflict 分支。
+- 在 tmp-rebase-no-conflict 分支上
+    - 新增內容 → git add → git commit
+- **git checkout <分支名稱>**
+    - 切換到 rebase-no-conflict 分支。
+- 在 rebase-no-conflict 分支上
+    - 新增內容 → git add → git commit
+- **git checkout <分支名稱>**
+    - 切換到 tmp-rebase-no-conflict 分支。
+- **git rebase <分支名稱>**
+    - 將 HEAD 指向的分支(tmp-rebase-no-conflict)搬到分支名稱(rebase-no-conflict)後。
+- **git checkout <分支名稱>**
+    - 切換到 rebase-no-conflict 分支。
+- **git merge <分支名稱>**
+    - 將分支名稱(tmp-rebase-no-conflict)合併到 HEAD 指向的分支(rebase-no-conflict)。
+    - rebase-no-conflict 落後 tmp-rebase-no-conflict，同步兩個分支的版本。
+- **git push -u <遠端名稱(origin)> <分支名稱>**
