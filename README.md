@@ -1,1 +1,34 @@
-# ****
+# **rebase**
+- [有衝突的 rebase](#有衝突的-rebase)
+
+## **有衝突的 rebase**
+- **git branch <分支名稱>**
+    - 在 master 上切新分支。
+    - 建立 rebase-conflict 分支。
+- **git checkout <分支名稱>**
+    - 切換到 rebase-conflict 分支。
+- 在 rebase-conflict 分支上
+    - 新增並編輯檔案 → git add → git commit
+- **git branch <分支名稱>**
+    - 在 master 上切新分支。
+    - 建立 tmp-rebase-conflict 分支。
+- **git checkout <分支名稱>**
+    - 切換到 tmp-rebase-conflict 分支。
+- 在 tmp-rebase-conflict 分支上
+    - 新增並編輯檔案 → git add → git commit
+- **git rebase <分支名稱>**，發生衝突
+    - 將 HEAD 指向的分支(tmp-rebase-conflict)搬到分支名稱(rebase-conflict)後。
+    - 本地端的兩個分支版本不一樣。
+- 解決衝突
+    - 在本地端手動解決衝突，並刪除 Git 的衝突標記。
+    - Git 的衝突標記：「<<<<<<<」、「=======」、「>>>>>>>」。
+- **git add**
+    - 將檔案標記為衝突已解決。
+- **git rebase --continue**
+    - 繼續執行 rebase。
+- **git checkout <分支名稱>**
+    - 切換到 rebase-conflict 分支。
+- **git merge <分支名稱>**
+    - 將分支名稱(tmp-rebase-conflict)合併到 HEAD 指向的分支(rebase-conflict)。
+    - rebase-conflict 落後 tmp-rebase-conflict，同步兩個分支的版本。
+- **git push -u <遠端名稱(origin)> <分支名稱>**
