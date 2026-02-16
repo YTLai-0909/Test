@@ -1,1 +1,36 @@
-# ****
+# **rebase -i**
+- [split 拆分一個 commit](#split-拆分一個-commit)
+
+## **split 拆分一個 commit**
+- **git branch <分支名稱>**
+    - 在 master 上切新分支。
+    - 建立分支。
+- **git checkout <分支名稱>**
+    - 切換分支。
+- 在 rebase-i-split 分支上
+    - 新增檔案 → git add → git commit
+    - 編輯檔案 → git add → git commit
+- **git rebase -i HEAD~1**
+    - 開啟互動式編輯器(Vim)。
+    - 1：列出從 HEAD 開始往前的 1 筆 commit，包含 HEAD。
+- 將 commit 前面的 pick 改成 edit，並儲存
+    - i：進入編輯模式。
+    - Esc：退出編輯模式。
+    - :wq：保存並退出。
+- Git 暫停在指定的 commit
+- **git reset HEAD^**
+    - 取消指定的 commit，清除暫存區的變更，保留工作目錄的變更。
+    - ^：目前 commit 的前一個 commit。
+- **git add -p <檔案名稱.副檔名>** (多次)
+    - 將指定修改加入暫存區。
+    - e：手動編輯要加入暫存區的修改內容(hunk)。
+- 開啟編輯器(Vim)，選擇要加入暫存區的內容 (多次)
+    - 留下：要加入的內容。
+    - 刪除：不要加入的內容。
+        - 純刪除：只刪除「-」。
+        - 純新增：只刪除「+」。
+        - 修改：同時刪除「-」和「+」。
+- **git commit** (多次)
+- **git rebase --continue**
+    - 繼續執行 rebase。
+- **git push -u <遠端名稱(origin)> <分支名稱>**
